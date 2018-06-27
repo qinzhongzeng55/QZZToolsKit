@@ -29,7 +29,7 @@
 /**
  通过缓存的key来获取对应的数据
 
- @param 缓存的Key
+ @param cacheKey 缓存的Key
  @return 缓存数据
  */
 - (id)itemWithCacheKey:(NSString *)cacheKey;

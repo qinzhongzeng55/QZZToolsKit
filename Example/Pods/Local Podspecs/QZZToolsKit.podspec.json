@@ -1,0 +1,41 @@
+{
+  "name": "QZZToolsKit",
+  "version": "0.1.1",
+  "summary": "A short description of QZZToolsKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/qinzhongzeng55/QZZToolsKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "qinzhongzeng55": "qinzhongzeng55@163.com"
+  },
+  "source": {
+    "git": "https://github.com/qinzhongzeng55/QZZToolsKit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "QZZToolsKit/Classes/**/*",
+  "resource_bundles": {
+    "QZZToolsKit": [
+      "QZZToolsKit/Assets/*"
+    ]
+  },
+  "dependencies": {
+    "FMDB": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "QZZCategoryKit": [
+
+    ],
+    "FLAnimatedImage": [
+
+    ]
+  }
+}
