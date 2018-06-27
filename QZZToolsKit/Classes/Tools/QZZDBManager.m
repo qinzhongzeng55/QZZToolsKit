@@ -7,8 +7,8 @@
 //
 
 #import "QZZDBManager.h"
-#import <FMDB/FMDatabase.h>
-#import <FMDB/FMResultSet.h>
+#import <fmdb/FMDatabase.h>
+#import <fmdb/FMResultSet.h>
 
 NSString * const kDBName = @"db.sqlite";
 
