@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "FLAnimatedImageView+WebCache.h"
 #import "MBProgressHUD+MJ.h"
 #import "MBProgressHUD.h"
 #import "QZZCoreArchive.h"

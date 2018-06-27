@@ -8,6 +8,7 @@
 #import "MBProgressHUD+MJ.h"
 
 @implementation MBProgressHUD (MJ)
+
 #pragma mark 显示信息
 + (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
 {
@@ -24,7 +25,7 @@
         hud.labelColor = [UIColor colorWithRed:47 green:198 blue:33 alpha:1];
     }
     // 设置图片
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:icon bundle:@"QZZToolsKit" targetClass:[self class]]];
     // 再设置模式
     hud.mode = MBProgressHUDModeCustomView;
     
@@ -37,12 +38,12 @@
 
 #pragma mark 显示错误信息
 + (void)showError:(NSString *)error toView:(UIView *)view{
-    [self show:error icon:@"error@3x.png" view:view];
+    [self show:error icon:@"error" view:view];
 }
 
 + (void)showSuccess:(NSString *)success toView:(UIView *)view
 {
-    [self show:success icon:@"success@3x.png" view:view];
+    [self show:success icon:@"success" view:view];
 }
 
 #pragma mark 显示一些信息

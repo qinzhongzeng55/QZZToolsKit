@@ -54,7 +54,7 @@ static QZZWebImage *_sharedInstance = nil;
     BOOL isDirectory = NO;
     // 判断路径是否存在
     BOOL exist = [mgr fileExistsAtPath:directoryPath isDirectory:&isDirectory];
-    DLog(@"\n图片缓存地址:\n%@",directoryPath);
+    NSLog(@"\n图片缓存地址:\n%@",directoryPath);
     // 用于累计缓存图片总大小
     NSInteger totalSize = 0;
     if(exist && isDirectory)
@@ -99,7 +99,7 @@ static QZZWebImage *_sharedInstance = nil;
     NSFileManager *mgr = [NSFileManager defaultManager];
     // 列出图片缓存文件夹下的所有图片
     NSArray *imageArray = [mgr contentsOfDirectoryAtPath:kGetImageCachePathInShaHe(self.cacheImagePath) error:nil];
-    DLog(@"\n图片缓存的地址:\n%@",kGetImageCachePathInShaHe(self.cacheImagePath));
+    NSLog(@"\n图片缓存的地址:\n%@",kGetImageCachePathInShaHe(self.cacheImagePath));
     if(imageArray.count>0)
     {
         for(NSString *fileName in imageArray)

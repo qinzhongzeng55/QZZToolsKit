@@ -6,6 +6,7 @@
 //
 
 #import "MBProgressHUD.h"
+#import <QZZCategoryKit/UIImage+Extension.h>
 
 @interface MBProgressHUD (MJ)
 
