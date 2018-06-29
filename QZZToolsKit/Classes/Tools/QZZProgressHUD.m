@@ -60,8 +60,12 @@
 }
 
 + (void)tishi:(NSString *)title toView:(UIView *)superView{
-    CGFloat y = NAV_HEIGHT;
-    __block UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((Screen_Width / 2 - 150), y+10, 300, 30)];
+    
+    CGFloat y = 64.0f;
+    if([UIScreen mainScreen].bounds.size.height == 812.0){
+        y = 88.0f;
+    }
+    __block UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(([[UIScreen mainScreen] bounds].size.width / 2 - 150), y+10, 300, 30)];
     label.text = title;
     label.textAlignment = NSTextAlignmentCenter;
     label.layer.masksToBounds = YES;
