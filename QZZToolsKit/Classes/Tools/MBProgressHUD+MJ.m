@@ -20,9 +20,9 @@
     hud.labelText = text;
     hud.dimBackground = YES;
     if ([icon containsString:@"error"]) {
-        hud.labelColor = [UIColor colorWithRed:245 green:82 blue:77 alpha:1];
+        hud.labelColor = [UIColor colorWithRed:245/255.0 green:82/255.0 blue:77/255.0 alpha:1];
     }else if ([icon containsString:@"success"]) {
-        hud.labelColor = [UIColor colorWithRed:47 green:198 blue:33 alpha:1];
+        hud.labelColor = [UIColor colorWithRed:47/255.0 green:198/255.0 blue:33/255.0 alpha:1];
     }
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:icon bundle:@"QZZToolsKit" targetClass:[self class]]];
