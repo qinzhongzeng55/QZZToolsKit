@@ -24,6 +24,8 @@
 		0FC25E78A772C56515A2F2541E168C76 /* QZZVerificationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 816D87FC0E85D662C9A1E492C260EFB3 /* QZZVerificationTools.m */; };
 		13ADE84F672E4DF94AB419484FFAEAFA /* FLAnimatedImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75952D8D855ABB2953B5B801ACAF276B /* FLAnimatedImage-dummy.m */; };
 		16AE2785E7574C3F7904D76AF88A8698 /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2913A2AE9AF4546221C3EA61E9D47972 /* FLAnimatedImageView+WebCache.m */; };
+		187744F821080A24000339E7 /* AutomaticSizeTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 187744F621080A24000339E7 /* AutomaticSizeTools.h */; };
+		187744F921080A24000339E7 /* AutomaticSizeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187744F721080A24000339E7 /* AutomaticSizeTools.m */; };
 		18D31D8DE813EA2A4513D4461CEFDA68 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D41A50814C5F60288C6484A4ECAF /* UIImageView+HighlightedWebCache.m */; };
 		204BB8A8186D1BE7AAF86A49EB73F61E /* NSButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F16C948FAA14D4479721A6A6DF335B73 /* NSButton+WebCache.m */; };
 		214615BB17EF3D06FB6DAFFE4EA407A6 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 71E6AD1154511693B3CAE7D37D58FB1A /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -257,6 +259,8 @@
 		163D839BD93AA585943BC1531C4431B6 /* error@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "error@3x.png"; path = "QZZToolsKit/Assets/error@3x.png"; sourceTree = "<group>"; };
 		177A49511BD8271C3C8557807F1C557C /* QZZToolsKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QZZToolsKit.modulemap; sourceTree = "<group>"; };
 		177E060A45AFEA3683E14634C75CD026 /* SDWebImageCodersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCodersManager.m; path = SDWebImage/SDWebImageCodersManager.m; sourceTree = "<group>"; };
+		187744F621080A24000339E7 /* AutomaticSizeTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutomaticSizeTools.h; sourceTree = "<group>"; };
+		187744F721080A24000339E7 /* AutomaticSizeTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutomaticSizeTools.m; sourceTree = "<group>"; };
 		1A67EABF871E3FB48796F036998B6F91 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = QZZToolsKit/Classes/ReplaceMe.m; sourceTree = "<group>"; };
 		1B2FE0692933B662E15E45D33667C1BF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1B9C75C68B22F127ECB5FF35B2EC8CB6 /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
@@ -792,6 +796,8 @@
 				816D87FC0E85D662C9A1E492C260EFB3 /* QZZVerificationTools.m */,
 				582BEFBBBF0C322914F7B2B8E2EE6464 /* QZZWebImage.h */,
 				D75FF72BDF8627062E33D94AF9E90F4D /* QZZWebImage.m */,
+				187744F621080A24000339E7 /* AutomaticSizeTools.h */,
+				187744F721080A24000339E7 /* AutomaticSizeTools.m */,
 			);
 			name = Tools;
 			path = QZZToolsKit/Classes/Tools;
@@ -993,6 +999,7 @@
 				FDB90A26C8CD94F63CA57314C0BF78E8 /* QZZProgressHUD.h in Headers */,
 				00DDEA57FC15B24031322B5ABF1E7C9D /* QZZSingleton.h in Headers */,
 				E2BA8B8D6AF619F651DFFE2D479770FC /* QZZToolsKit-umbrella.h in Headers */,
+				187744F821080A24000339E7 /* AutomaticSizeTools.h in Headers */,
 				36BA1A155D7C22D68F70FEBD61077268 /* QZZVerificationTools.h in Headers */,
 				0DF3508766BB8C8108821E7AEF87B01C /* QZZWebImage.h in Headers */,
 			);
@@ -1319,6 +1326,7 @@
 				020CD517CAEA720B0D9204EACE9A6E8C /* QZZFileOperation.m in Sources */,
 				77C02550167B1FBE8A059C3A8B21D508 /* QZZHelper.m in Sources */,
 				8EC58F2423DD9FB17B585227157945C3 /* QZZNSDateTools.m in Sources */,
+				187744F921080A24000339E7 /* AutomaticSizeTools.m in Sources */,
 				D70931B2AEE60F8F387C7C992E7DA578 /* QZZProgressHUD.m in Sources */,
 				2C8E9106C01CF0963BDD75D5ED560958 /* QZZToolsKit-dummy.m in Sources */,
 				0FC25E78A772C56515A2F2541E168C76 /* QZZVerificationTools.m in Sources */,

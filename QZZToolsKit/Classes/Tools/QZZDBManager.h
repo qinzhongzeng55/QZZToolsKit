@@ -1,6 +1,6 @@
 //
 //  QZZDBManager.h
-//
+//  数据缓存
 //
 //  Created by qinzhongzeng on 16/4/5.
 //  Copyright © 2016年 Triangle. All rights reserved.

@@ -22,5 +22,9 @@ static class *_instance; \
     } \
 \
     return _instance; \
-}
-
+} \
+\
+- (id)copyWithZone:(NSZone *)zone{ \
+\
+    return self; \
+} \
