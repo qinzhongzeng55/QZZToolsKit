@@ -41,4 +41,32 @@ singleton_implementation(AutomaticSizeTools)
     realSize.height = ceilf(realSize.height);
     return realSize;
 }
+- (CGSize)calculateSizeForLabel:(UILabel *)label MaxWidth:(CGFloat)width LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing{
+    UIFont *contentFont = label.font;
+    CGSize contentTextMaxSize = CGSizeMake(width,DBL_MAX);
+    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:label.text Font:contentFont MaxSize:contentTextMaxSize LineSpacing:LineSpacing WordsSpacing:WordsSpacing];
+    UIFontDescriptor *ctfFont = contentFont.fontDescriptor;
+    NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
+    if (size.height <= ([fontString integerValue]+LineSpacing+10)) {
+        size = CGSizeMake(size.width, size.height - LineSpacing);
+        [UILabel changeSpace:label withLineSpace:0 WordSpace:WordsSpacing];
+    }else{
+        [UILabel changeSpace:label withLineSpace:LineSpacing WordSpace:WordsSpacing];
+    }
+    return size;
+}
+- (CGSize)calculateSizeForTextView:(UITextView *)textView MaxWidth:(CGFloat)width LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing{
+    UIFont *contentFont = textView.font;
+    CGSize contentTextMaxSize = CGSizeMake(width,DBL_MAX);
+    CGSize size = [self boundingALLRectWithSize:textView.text Font:contentFont MaxSize:contentTextMaxSize LineSpacing:LineSpacing WordsSpacing:WordsSpacing];
+    UIFontDescriptor *ctfFont = contentFont.fontDescriptor;
+    NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
+    if (size.height <= ([fontString integerValue]+LineSpacing+10)) {
+        size = CGSizeMake(size.width, size.height - LineSpacing);
+        [UITextView changeSpace:textView withLineSpace:0 WordSpace:WordsSpacing];
+    }else{
+        [UITextView changeSpace:textView withLineSpace:LineSpacing WordSpace:WordsSpacing];
+    }
+    return size;
+}
 @end

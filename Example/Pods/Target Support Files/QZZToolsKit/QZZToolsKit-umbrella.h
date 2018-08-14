@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "AutomaticSizeTools.h"
 #import "FLAnimatedImageView+WebCache.h"
 #import "MBProgressHUD+MJ.h"
 #import "MBProgressHUD.h"

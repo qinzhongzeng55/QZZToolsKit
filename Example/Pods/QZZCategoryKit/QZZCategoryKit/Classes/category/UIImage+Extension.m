@@ -13,7 +13,7 @@
     
     NSInteger scale = [[UIScreen mainScreen] scale];
     NSBundle *currentBundle = [NSBundle bundleForClass:targetClass];
-    NSString *name = [NSString stringWithFormat:@"%@@%zdx",imageName,scale];
+    NSString *name = [NSString stringWithFormat:@"%@@%zdx",imageName,(long)scale];
     NSString *dir = [NSString stringWithFormat:@"%@.bundle",bundle];
     NSString *path = [currentBundle pathForResource:name ofType:@"png" inDirectory:dir];
     return path ? [UIImage imageWithContentsOfFile:path] : nil;
