@@ -20,6 +20,9 @@ singleton_implementation(AutomaticSizeTools)
  * @param WordsSpacing 字间距
  */
 - (CGSize)boundingALLRectWithSize:(NSString*)txt Font:(UIFont*)font MaxSize:(CGSize)size LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing{
+    if (txt == nil) {
+        return CGSizeZero;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:txt];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
     [style setLineSpacing:LineSpacing];
