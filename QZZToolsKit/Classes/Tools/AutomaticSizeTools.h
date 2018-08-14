@@ -31,6 +31,7 @@ singleton_interface(AutomaticSizeTools)
  * @param WordsSpacing 字间距
  */
 - (CGSize)calculateSizeForLabel:(UILabel *)label MaxWidth:(CGFloat)width LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing;
+- (CGSize)calculateSizeForLabel:(UILabel *)label MaxWidth:(CGFloat)width LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing  textAlignment:(NSTextAlignment)textAlignment;
 /**
  * 根据文本计算size
  * @param textView 需要计算size的UITextView
@@ -39,4 +40,5 @@ singleton_interface(AutomaticSizeTools)
  * @param WordsSpacing 字间距
  */
 - (CGSize)calculateSizeForTextView:(UITextView *)textView MaxWidth:(CGFloat)width LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing;
+- (CGSize)calculateSizeForTextView:(UITextView *)textView MaxWidth:(CGFloat)width LineSpacing:(CGFloat)LineSpacing WordsSpacing:(CGFloat)WordsSpacing  textAlignment:(NSTextAlignment)textAlignment;
 @end
