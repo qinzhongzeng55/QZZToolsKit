@@ -242,7 +242,7 @@
 /* Begin PBXFileReference section */
 		01BAA7D1DFA6DA37AC59708DB4AE34F7 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		045515837103A4EB2B6FA0CE96A6CAD0 /* NSArray+Log.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "QZZCategoryKit/Classes/category/NSArray+Log.h"; sourceTree = "<group>"; };
-		04E28E98817917CF03A1F3F578F1DB91 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		04E28E98817917CF03A1F3F578F1DB91 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05DFED7FE33F732CBBBBDFE99E309A34 /* QZZToolsKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QZZToolsKit-dummy.m"; sourceTree = "<group>"; };
 		06BBC166D06781A48C17429EF6A13AD9 /* SDWebImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCoder.h; path = SDWebImage/SDWebImageCoder.h; sourceTree = "<group>"; };
 		06C361C569F71F35ADD116DCFC8F04F4 /* SDWebImageCodersManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCodersManager.h; path = SDWebImage/SDWebImageCodersManager.h; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 		0BF556971A6E9DC67BA89BC781DE9329 /* QZZDBManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZDBManager.m; sourceTree = "<group>"; };
 		0DB484EDC19792EA91A772766A30F00E /* Pods-QZZToolsKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-QZZToolsKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		12CB29B282A57A3C2E5636C72C4965B7 /* QZZToolsKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QZZToolsKit-prefix.pch"; sourceTree = "<group>"; };
-		1495D80E33FE83248F49E1CA1C3DA77E /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1495D80E33FE83248F49E1CA1C3DA77E /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		149E8F9C4E52065E544090C87B4FE8D9 /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		15BECB5F973675BF6602489762CEF6F1 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = FLAnimatedImage/FLAnimatedImageView.h; sourceTree = "<group>"; };
 		177E060A45AFEA3683E14634C75CD026 /* SDWebImageCodersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCodersManager.m; path = SDWebImage/SDWebImageCodersManager.m; sourceTree = "<group>"; };
@@ -284,26 +284,26 @@
 		3C507D22257B2B0A4080EC53D2CA1D61 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		3CC7AD67C1EEE6B20A91EC4286E8D14B /* QZZCategoryKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QZZCategoryKit-dummy.m"; sourceTree = "<group>"; };
 		3D1F878A922EDBB796B646F3BE76537F /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
-		4225091E977A94EAB4991C5A6FE7540A /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4225091E977A94EAB4991C5A6FE7540A /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4238BE8A8EB4DFFBC87707E2C52C9676 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
 		4448B8F4D9613484DEF12FD361186FD1 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		449A643CEB3A3F526BEE54DABBCF32B8 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		46A1FA116D8C58DAB7C82E3DEBB40801 /* success.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = success.png; path = QZZToolsKit/Assets/success.png; sourceTree = "<group>"; };
-		48E417F17598058EDE478E874A9F6181 /* QZZToolsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZToolsKit.framework; path = QZZToolsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48E417F17598058EDE478E874A9F6181 /* QZZToolsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZToolsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA580C855147863D6B44D1BB540BE65 /* QZZDBManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZDBManager.h; sourceTree = "<group>"; };
 		4DEF22E6D5095AF10C4408E887DF2A88 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		4E62568771736A49F0BA69711F60830E /* QZZToolsKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QZZToolsKit-umbrella.h"; sourceTree = "<group>"; };
 		4F9D0D3273B53BA21E53E8042C98BF0C /* UIColor+Hex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "QZZCategoryKit/Classes/category/UIColor+Hex.h"; sourceTree = "<group>"; };
 		4FC59C94280C5B39F6EEB47D179644FD /* SDWebImageImageIOCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageImageIOCoder.m; path = SDWebImage/SDWebImageImageIOCoder.m; sourceTree = "<group>"; };
 		506368638B6E0BFC4C082BB2CB291632 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
-		517BE6553F3A8D32A34D162524F5D1CD /* QZZToolsKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = QZZToolsKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		517BE6553F3A8D32A34D162524F5D1CD /* QZZToolsKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = QZZToolsKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		51DE9561680C96D28CE748EF6A13E8D6 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		52423B73CF45A7B3E57AAF4F89C9A85F /* SDWebImageTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageTransition.h; path = SDWebImage/SDWebImageTransition.h; sourceTree = "<group>"; };
-		52EF8CC503BAF85F0282802AF02F4C32 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FLAnimatedImage.framework; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EF8CC503BAF85F0282802AF02F4C32 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5342569B1A83AA34F8B6C7CBEFAD8F16 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		537417AC97805330070FB323A232F8CB /* UITextView+ChangeLineSpaceAndWordSpace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+ChangeLineSpaceAndWordSpace.m"; path = "QZZCategoryKit/Classes/category/UITextView+ChangeLineSpaceAndWordSpace.m"; sourceTree = "<group>"; };
 		59027EE24E9F681CC8B8FAAF913D2553 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
-		594A5F4BF7EAACD8ACAFBD55298DFD63 /* QZZCategoryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZCategoryKit.framework; path = QZZCategoryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		594A5F4BF7EAACD8ACAFBD55298DFD63 /* QZZCategoryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZCategoryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C356FCC230AEE66AEC25038D3A54359 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		5CB07A1FB49434534F1358B15D818B7E /* QZZCoreArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZCoreArchive.m; sourceTree = "<group>"; };
 		5CECE403595A975686997F7326823CD7 /* SDWebImageCoderHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCoderHelper.m; path = SDWebImage/SDWebImageCoderHelper.m; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 		79D30C5727A78F0B4E10E9308BDFA968 /* QZZNSDateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZNSDateTools.h; sourceTree = "<group>"; };
 		7C82BE659405BFEAB9F5E42C10D33064 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		7D81287E4210539AA63C27C19B6CEFC2 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
-		828134E4072EE1C5978D55D4178ACF02 /* Pods_QZZToolsKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_QZZToolsKit_Example.framework; path = "Pods-QZZToolsKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		828134E4072EE1C5978D55D4178ACF02 /* Pods_QZZToolsKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QZZToolsKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		835103F18B6BCBF7191F2FA7B4512F74 /* Pods-QZZToolsKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-QZZToolsKit_Tests.modulemap"; sourceTree = "<group>"; };
 		8380161384D4C2FFF54264D7BCC22648 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		83E18806E4C5A61339349BFCE9E11B40 /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		8D59E470CDBB8434C715751B66E71550 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E913F65A3DBB98481DB7C991077A08D /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		8FFAEEE59B5E6B4E58194A2C1F0C5258 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		945F4295A0F51C2B990180C14113A06F /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FMDB.modulemap; sourceTree = "<group>"; };
 		94C4D7163F4E004C46EEE8791AF24AD6 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		951227F2CC26087B1CF84EA86C22ACAF /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
@@ -388,15 +388,15 @@
 		B47538B5E9836CC0370DAD8BA61A786E /* NSString+Emoji.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+Emoji.m"; path = "QZZCategoryKit/Classes/category/NSString+Emoji.m"; sourceTree = "<group>"; };
 		B7A491B0CD86014178A2682D7517E7F9 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		B92245023E6C25BB63AD45EAEC5FA90E /* Pods-QZZToolsKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QZZToolsKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		BB5FFCE8963068E9973BB6CA5559A974 /* QZZToolsKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = QZZToolsKit.bundle; path = "QZZToolsKit-QZZToolsKit.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB5FFCE8963068E9973BB6CA5559A974 /* QZZToolsKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QZZToolsKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA6DBF0871DE39C2C8BDC205302471A /* Pods-QZZToolsKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QZZToolsKit_Example-dummy.m"; sourceTree = "<group>"; };
 		C042587BECD1CFB873846E50DBC4A57A /* Pods-QZZToolsKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-QZZToolsKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		C05F1F249465DB9EB7D2C6C8788FC6FE /* QZZHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZHelper.m; sourceTree = "<group>"; };
 		C2715B0F1C2A798BA4C92055D460D42A /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		C9C93C26229419F59319FD070D044629 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		C9D1FA633889A2D888D9ECFDCFCEA29E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		C9E41B74A77E7E33CC7532C92E8B98F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		CACD59EF10A395707EE0FDF2A7095394 /* Pods_QZZToolsKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_QZZToolsKit_Tests.framework; path = "Pods-QZZToolsKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E41B74A77E7E33CC7532C92E8B98F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CACD59EF10A395707EE0FDF2A7095394 /* Pods_QZZToolsKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QZZToolsKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6EA1B0810584EBC3E3446FD6626008 /* UIButton+Extension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extension.h"; path = "QZZCategoryKit/Classes/category/UIButton+Extension.h"; sourceTree = "<group>"; };
 		CCEBB04AA43C6E79F35F236BBFF88B0F /* NSImage+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSImage+WebCache.h"; path = "SDWebImage/NSImage+WebCache.h"; sourceTree = "<group>"; };
 		D0DFC02ED7EF01C2A9D078B4ECF24FDB /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
@@ -513,10 +513,10 @@
 			isa = PBXGroup;
 			children = (
 				83F8C7CCAFFCDA3D9B6117F36912F228 /* ReplaceMe.m */,
+				22BA0654FCB80FD08D1B8D1DDC70430F /* Tools */,
 				598974D74374E09D6F04FE3CD755EF1A /* Pod */,
 				BFC7C4B6389B1096EA68BAD831EED69A /* Resources */,
 				12311918D043F3E36CFB35B835AEC2FD /* Support Files */,
-				22BA0654FCB80FD08D1B8D1DDC70430F /* Tools */,
 			);
 			name = QZZToolsKit;
 			path = ../..;
@@ -658,7 +658,6 @@
 				DA838CBC1542396C9F6361FF38AE387F /* FLAnimatedImageView.m */,
 				9D69649820E64A3AB9CB97AFEF11747B /* Support Files */,
 			);
-			name = FLAnimatedImage;
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
@@ -668,7 +667,6 @@
 				DFA991A15B7AC08C2F16B82887E3F40F /* standard */,
 				3D5419E3F2187C90110AD6750226CB0B /* Support Files */,
 			);
-			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -748,7 +746,6 @@
 				CB9CA8096DE345D095787D2DD7EEE5C5 /* Core */,
 				C52BA90DADE6B2BDD5510047368F4D10 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -863,7 +860,6 @@
 				537417AC97805330070FB323A232F8CB /* UITextView+ChangeLineSpaceAndWordSpace.m */,
 				30664772294667823F7B2EA05A8BC5DB /* Support Files */,
 			);
-			name = QZZCategoryKit;
 			path = QZZCategoryKit;
 			sourceTree = "<group>";
 		};

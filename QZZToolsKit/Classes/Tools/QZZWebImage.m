@@ -215,4 +215,52 @@ static QZZWebImage *_sharedInstance = nil;
     }
     return effectsImage;
 }
+///保存网络图片
+- (void)saveImageInPhotoLibraryWithImageUrl:(NSString *)imageUrl completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler{
+
+    NSURL *url = [NSURL URLWithString: imageUrl];
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    __weak typeof(self) weakSelf = self;
+    [manager diskImageExistsForURL:url completion:^(BOOL isInCache) {
+        UIImage *img;
+        if (isInCache){
+            img =  [[manager imageCache] imageFromDiskCacheForKey:url.absoluteString];
+        }else{
+            //从网络下载图片
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            img = [UIImage imageWithData:data];
+        }
+        //保存图片
+        [weakSelf saveImageInPhotoLibraryWithImage:img completionHandler:completionHandler];
+    }];
+}
+///保存图片
+- (void)saveImageInPhotoLibraryWithImage:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler{
+    if (image != nil) {
+        
+        NSMutableArray *imageIds = [NSMutableArray array];
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            //写入图片到相册
+            PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+            //记录本地标识，等待完成后取到相册中的图片对象
+            [imageIds addObject:req.placeholderForCreatedAsset.localIdentifier];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            NSLog(@"保存到相册时success = %d, error = %@", success, error);
+            if (success){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [QZZProgressHUD showSuccess:@"已保存到系统相册"];
+                });
+                //成功后取相册中的图片对象
+                __block PHAsset *imageAsset = nil;
+                PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:imageIds options:nil];
+                [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    imageAsset = obj;
+                    *stop = YES;
+                    completionHandler(success,error,imageAsset);
+                }];
+            }
+        }];
+    }
+}
 @end

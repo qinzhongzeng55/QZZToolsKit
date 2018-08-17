@@ -17,6 +17,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <QZZCategoryKit/UIImage+ImageEffects.h>
 #import "FLAnimatedImageView+WebCache.h"
+#import <Photos/PHPhotoLibrary.h>
+#import <Photos/PHAssetChangeRequest.h>
+#import <Photos/PHFetchOptions.h>
+#import <Photos/PHImageManager.h>
+#import "QZZProgressHUD.h"
 
 ///图片沙盒路径
 #define kGetImageCachePathInShaHe(imagePath) [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:imagePath]
@@ -90,4 +95,12 @@ typedef NS_ENUM(NSInteger, ImageEffectsType) {
  *  @param type 磨砂效果类型
  */
 + (UIImage *)getFrostedImage:(UIImage *)image type:(ImageEffectsType)type;
+/**
+ * 保存图片到系统相册
+ */
+- (void)saveImageInPhotoLibraryWithImage:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler;
+/**
+ * 保存网络图片到系统相册
+ */
+- (void)saveImageInPhotoLibraryWithImageUrl:(NSString *)imageUrl completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler;
 @end
