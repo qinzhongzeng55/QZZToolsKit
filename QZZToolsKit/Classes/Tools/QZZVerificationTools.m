@@ -33,6 +33,17 @@ static id sharedInstance = nil;
 - (id)copyWithZone:(NSZone *)zone{
     return self;
 }
++ (BOOL)isNumberString:(NSString *)string{
+    if (string.length == 0) {
+        return NO;
+    }
+    NSString *regex = @"[0-9]*";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    if ([pred evaluateWithObject:string]) {
+        return YES;
+    }
+    return NO;
+}
 + (BOOL)isEmptyString:(NSString *)text{
     BOOL isEmpty = NO;
     if (text == nil || [text isEqualToString:@""] || [text isEqualToString:@"(null)"])  {

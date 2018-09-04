@@ -70,4 +70,12 @@
  *  @return BOOL
  */
 + (BOOL)isEmptyString:(NSString *)text;
+/**
+ *  判断是否为数字(使用正则表达式)
+ *
+ *  @param string 待验证的字符串
+ *
+ *  @return BOOL
+ */
++ (BOOL)isNumberString:(NSString *)string;
 @end
