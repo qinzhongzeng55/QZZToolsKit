@@ -246,6 +246,12 @@ static QZZWebImage *_sharedInstance = nil;
             [imageIds addObject:req.placeholderForCreatedAsset.localIdentifier];
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
             NSLog(@"保存到相册时success = %d, error = %@", success, error);
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [QZZProgressHUD showError:@"保存失败"];
+                });
+                return;
+            }
             if (success){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
