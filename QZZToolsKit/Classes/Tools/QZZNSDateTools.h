@@ -84,4 +84,16 @@
  *  获取两个日期之间相差的天数
  */
 - (NSInteger)getDaysdDifferenceOneDay:(NSString *)oneDay betweenWithAnotherDay:(NSString *)anotherDay;
+/**
+ *  根据时间戳获取对应的时间字符串
+ *
+ *  @param timeInterval 时间戳(单位为毫秒)
+ */
+- (NSString *)getDateStringWithTimeIntervalString:(NSNumber *)timeInterval;
+/**
+ *  根据时间戳获取对应的NSDate
+ *
+ *  @param timeInterval 时间戳(单位为毫秒)
+ */
+- (NSDate *)getDateWithTimeIntervalString:(NSNumber *)timeInterval;
 @end

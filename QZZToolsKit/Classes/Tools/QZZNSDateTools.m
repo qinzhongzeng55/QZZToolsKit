@@ -173,4 +173,19 @@ static QZZNSDateTools *_dateTools = nil;
     int timediff = [dateB timeIntervalSince1970]-[dateA timeIntervalSince1970];
     return timediff/60/60/24;
 }
+
+- (NSString *)getDateStringWithTimeIntervalString:(NSNumber *)timeInterval
+{
+    // 毫秒值转化为秒
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeInterval doubleValue]/ 1000.0];
+    NSString* dateString = [self.dateFormatter stringFromDate:date];
+    return dateString;
+}
+
+- (NSDate *)getDateWithTimeIntervalString:(NSNumber *)timeInterval
+{
+    // 毫秒值转化为秒
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeInterval doubleValue]/ 1000.0];
+    return date;
+}
 @end
