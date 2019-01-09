@@ -37,7 +37,7 @@ static id sharedInstance = nil;
     if (string.length == 0) {
         return NO;
     }
-    NSString *regex = @"[0-9]*";
+    NSString *regex = @"^[0-9]+([.]{0,1}[0-9]+){0,1}$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     if ([pred evaluateWithObject:string]) {
         return YES;
