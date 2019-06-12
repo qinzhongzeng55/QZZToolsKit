@@ -44,25 +44,20 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
+                   context:(nullable SDWebImageContext *)context
                   progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
-                 completed:(nullable SDExternalCompletionBlock)completedBlock {
+                 completed:(nullable SDInternalCompletionBlock)completedBlock {
     __weak typeof(self)weakSelf = self;
-    [self sd_internalSetImageWithURL:url
-                    placeholderImage:placeholder
-                             options:options
-                        operationKey:nil
-                       setImageBlock:^(UIImage *image, NSData *imageData) {
-                           SDImageFormat imageFormat = [NSData sd_imageFormatForImageData:imageData];
-                           if (imageFormat == SDImageFormatGIF) {
-                               weakSelf.animatedImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
-                               weakSelf.image = nil;
-                           } else {
-                               weakSelf.image = image;
-                               weakSelf.animatedImage = nil;
-                           }
-                       }
-                            progress:progressBlock
-                           completed:completedBlock];
+    [self sd_internalSetImageWithURL:url placeholderImage:placeholder options:options context:context setImageBlock:^(UIImage * _Nullable image, NSData * _Nullable imageData, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        SDImageFormat imageFormat = [NSData sd_imageFormatForImageData:imageData];
+        if (imageFormat == SDImageFormatGIF) {
+            weakSelf.animatedImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
+            weakSelf.image = nil;
+        } else {
+            weakSelf.image = image;
+            weakSelf.animatedImage = nil;
+        }
+    } progress:progressBlock completed:completedBlock];
 }
 
 @end

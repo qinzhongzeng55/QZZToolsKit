@@ -1,6 +1,6 @@
 //
 //  QZZWebImage.m
-//
+//  
 //
 //  Created by qinzhongzeng on 16/6/19.
 //  Copyright © 2016年 qinzhongzeng. All rights reserved.
@@ -17,14 +17,7 @@ static QZZWebImage *_sharedInstance = nil;
 @implementation QZZWebImage
 
 + (instancetype)sharedWebImage{
-    @synchronized(self){
-        if(_sharedInstance == nil){
-            _sharedInstance = [[self alloc] init];
-            //计算缓存大小
-            [_sharedInstance caculateCacheSize];
-        }
-    }
-    return _sharedInstance;
+    return  [[self alloc] init];
 }
 
 + (id)allocWithZone:(struct _NSZone *)zone{
@@ -45,6 +38,7 @@ static QZZWebImage *_sharedInstance = nil;
 
 - (void)clearCacheImage
 {
+
     //清除SDWebImage的缓存
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
     [[SDImageCache sharedImageCache] clearMemory];
@@ -62,14 +56,12 @@ static QZZWebImage *_sharedInstance = nil;
     BOOL exist = [mgr fileExistsAtPath:directoryPath isDirectory:&isDirectory];
     NSLog(@"\n图片缓存地址:\n%@",directoryPath);
     // 用于累计缓存图片总大小
-    NSUInteger intg = [[SDImageCache sharedImageCache] getSize];
-    CGFloat totalSize = intg;
-    self.totalCacheSize = totalSize;
+    NSInteger totalSize = 0;
     if(exist && isDirectory)
     {
         // 列出图片缓存文件夹下的所有图片
         NSArray *imageArray = [mgr contentsOfDirectoryAtPath:directoryPath error:nil];
-        if(imageArray.count > 0)
+        if(imageArray.count>0)
         {
             for(NSString *fileName in imageArray)
             {
@@ -92,25 +84,14 @@ static QZZWebImage *_sharedInstance = nil;
         //目录不存在则创建该目录
         [mgr createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
         self.totalCacheSize =  totalSize;
-        return [self convertSize:totalSize];
+        return @"0 MB";
     }
 }
-
 - (NSString *)convertSize:(NSInteger)totalSize{
-    
-    // 1k = 1024, 1m = 1024k
-    if (totalSize < 1024.f) {// 小于1k
-        return [NSString stringWithFormat:@"%ldB",(long)totalSize];
-    }else if (totalSize < 1024.f * 1024.f){// 小于1m
-        CGFloat aFloat = totalSize/1024.f;
-        return [NSString stringWithFormat:@"%.0fKB",aFloat];
-    }else if (totalSize < 1024.f * 1024.f * 1024.f){// 小于1G
-        CGFloat aFloat = totalSize/(1024.f * 1024.f);
-        return [NSString stringWithFormat:@"%.1fM",aFloat];
-    }else{
-        CGFloat aFloat = totalSize/(1024.f*1024.f*1024.f);
-        return [NSString stringWithFormat:@"%.1fG",aFloat];
-    }
+    // MB为单位
+    CGFloat totalSizeForM = totalSize / 1024.f / 1024.f;
+    self.totalCacheSize = totalSizeForM;
+    return [NSString stringWithFormat:@"%.2lf MB",totalSizeForM];
 }
 /**清除沙盒中的图片缓存*/
 - (void)clearImageCacheInSandbox
@@ -199,7 +180,7 @@ static QZZWebImage *_sharedInstance = nil;
 }
 
 + (UIImage *)getScreenCaptureImage{
-    
+
     CGRect rect = [UIApplication sharedApplication].keyWindow.bounds;
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     // 1.开启图片的图形上下文
@@ -217,7 +198,7 @@ static QZZWebImage *_sharedInstance = nil;
 }
 ///获取磨砂图片
 + (UIImage *)getFrostedImage:(UIImage *)image type:(ImageEffectsType)type{
-    
+
     UIImage *effectsImage = image;
     switch (type) {
         case ImageEffectsTypeLight:
@@ -236,19 +217,14 @@ static QZZWebImage *_sharedInstance = nil;
 }
 ///保存网络图片
 - (void)saveImageInPhotoLibraryWithImageUrl:(NSString *)imageUrl completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler{
-    
+
     NSURL *url = [NSURL URLWithString: imageUrl];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     __weak typeof(self) weakSelf = self;
-    [manager diskImageExistsForURL:url completion:^(BOOL isInCache) {
-        UIImage *img;
-        if (isInCache){
-            img =  [[manager imageCache] imageFromDiskCacheForKey:url.absoluteString];
-        }else{
-            //从网络下载图片
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            img = [UIImage imageWithData:data];
-        }
+    [manager loadImageWithURL:url options:nil progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+        UIImage *img = [UIImage imageWithData:data];
         //保存图片
         [weakSelf saveImageInPhotoLibraryWithImage:img completionHandler:completionHandler];
     }];

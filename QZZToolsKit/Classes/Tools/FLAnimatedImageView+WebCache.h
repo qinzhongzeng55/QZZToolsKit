@@ -18,8 +18,8 @@
 #endif
 
 #import <SDWebImage/SDWebImageManager.h>
-
-
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/UIView+WebCache.h>
 /**
  *  A category for the FLAnimatedImage imageView class that hooks it to the SDWebImage system.
  *  Very similar to the base class category (UIImageView (WebCache))
@@ -127,8 +127,9 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
+                   context:(nullable SDWebImageContext *)context
                   progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDInternalCompletionBlock)completedBlock;
 
 @end
 

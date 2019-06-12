@@ -36,8 +36,8 @@ typedef NS_ENUM(NSInteger, ImageEffectsType) {
 
 ///图片缓存路径
 @property (nonatomic, copy) NSString *cacheImagePath;
-///图片缓存大小(单位为B)
-@property (nonatomic, assign) NSUInteger totalCacheSize;
+///图片缓存大小(以MB为单位)
+@property (nonatomic, assign) CGFloat totalCacheSize;
 
 + (instancetype)sharedWebImage;
 
