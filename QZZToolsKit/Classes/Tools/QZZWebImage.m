@@ -57,6 +57,7 @@ static QZZWebImage *_sharedInstance = nil;
     NSLog(@"\n图片缓存地址:\n%@",directoryPath);
     // 用于累计缓存图片总大小
     NSInteger totalSize = 0;
+    totalSize = [SDImageCache sharedImageCache].totalDiskSize;
     if(exist && isDirectory)
     {
         // 列出图片缓存文件夹下的所有图片

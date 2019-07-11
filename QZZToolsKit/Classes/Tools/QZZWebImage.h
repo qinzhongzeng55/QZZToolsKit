@@ -22,6 +22,7 @@
 #import <Photos/PHFetchOptions.h>
 #import <Photos/PHImageManager.h>
 #import "QZZProgressHUD.h"
+#import <SDWebImage/SDImageCache.h>
 
 ///图片沙盒路径
 #define kGetImageCachePathInShaHe(imagePath) [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:imagePath]
