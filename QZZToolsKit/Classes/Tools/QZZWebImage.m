@@ -1,17 +1,19 @@
 //
 //  QZZWebImage.m
-//  
+//
 //
 //  Created by qinzhongzeng on 16/6/19.
 //  Copyright © 2016年 qinzhongzeng. All rights reserved.
 //
 
 #import "QZZWebImage.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface QZZWebImage()
+@interface QZZWebImage()<UIAlertViewDelegate>
 
 @end
 
+static NSInteger retryCount = 0;
 static QZZWebImage *_sharedInstance = nil;
 
 @implementation QZZWebImage
@@ -38,7 +40,6 @@ static QZZWebImage *_sharedInstance = nil;
 
 - (void)clearCacheImage
 {
-
     //清除SDWebImage的缓存
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
     [[SDImageCache sharedImageCache] clearMemory];
@@ -181,7 +182,7 @@ static QZZWebImage *_sharedInstance = nil;
 }
 
 + (UIImage *)getScreenCaptureImage{
-
+    
     CGRect rect = [UIApplication sharedApplication].keyWindow.bounds;
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     // 1.开启图片的图形上下文
@@ -199,7 +200,7 @@ static QZZWebImage *_sharedInstance = nil;
 }
 ///获取磨砂图片
 + (UIImage *)getFrostedImage:(UIImage *)image type:(ImageEffectsType)type{
-
+    
     UIImage *effectsImage = image;
     switch (type) {
         case ImageEffectsTypeLight:
@@ -218,7 +219,7 @@ static QZZWebImage *_sharedInstance = nil;
 }
 ///保存网络图片
 - (void)saveImageInPhotoLibraryWithImageUrl:(NSString *)imageUrl completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler{
-
+    
     NSURL *url = [NSURL URLWithString: imageUrl];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     __weak typeof(self) weakSelf = self;
@@ -232,37 +233,74 @@ static QZZWebImage *_sharedInstance = nil;
 }
 ///保存图片
 - (void)saveImageInPhotoLibraryWithImage:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError *__nullable error,PHAsset *imageAsset))completionHandler{
-    if (image != nil) {
+    [QZZProgressHUD showLoadingMessage:@"保存中"];
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusRestricted || status == PHAuthorizationStatusDenied){
+        completionHandler(NO,nil,nil);
+        [QZZProgressHUD hideAllHUDsForView:nil animated:NO];
+        // 无权限 做一个友好的提示
+        UIAlertView *alart = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                        message:@"请您设置允许该APP访问您的相册,\n请在iPhone的\"设置>隐私>照片\"选项中,允许该APP\"读取和写入\"照片"
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:@"去设置", nil];
+        [alart show];
+    }else{
+        retryCount++;
+        __weak typeof(self) weakSelf = self;
+        if (image != nil) {
+            
+            NSMutableArray *imageIds = [NSMutableArray array];
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                //写入图片到相册
+                PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+                //记录本地标识，等待完成后取到相册中的图片对象
+                [imageIds addObject:req.placeholderForCreatedAsset.localIdentifier];
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                NSLog(@"保存到相册时success = %d, error = %@", success, error);
+                if (error) {
+                    if (retryCount < 10){
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [weakSelf saveImageInPhotoLibraryWithImage:image completionHandler:completionHandler];
+                        });
+                    }else{
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [QZZProgressHUD hideAllHUDsForView:nil animated:NO];
+                        });
+                        completionHandler(NO,error,nil);
+                    }
+                    return;
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [QZZProgressHUD hideAllHUDsForView:nil animated:NO];
+                });
+                if (success){
+                    //成功后取相册中的图片对象
+                    __block PHAsset *imageAsset = nil;
+                    PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:imageIds options:nil];
+                    [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        imageAsset = obj;
+                        *stop = YES;
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [QZZProgressHUD showMessage:@"已保存到系统相册"];
+                        });
+                        completionHandler(success,error,imageAsset);
+                    }];
+                }
+            }];
+        }
+    }
+}
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
         
-        NSMutableArray *imageIds = [NSMutableArray array];
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            //写入图片到相册
-            PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
-            //记录本地标识，等待完成后取到相册中的图片对象
-            [imageIds addObject:req.placeholderForCreatedAsset.localIdentifier];
-        } completionHandler:^(BOOL success, NSError * _Nullable error) {
-            NSLog(@"保存到相册时success = %d, error = %@", success, error);
-            if (error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [QZZProgressHUD showError:@"保存失败"];
-                });
-                return;
-            }
-            if (success){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    [QZZProgressHUD showSuccess:@"已保存到系统相册"];
-                });
-                //成功后取相册中的图片对象
-                __block PHAsset *imageAsset = nil;
-                PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:imageIds options:nil];
-                [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    imageAsset = obj;
-                    *stop = YES;
-                    completionHandler(success,error,imageAsset);
-                }];
-            }
-        }];
+    }else if (buttonIndex == 1){
+        NSURL * url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if([[UIApplication sharedApplication] canOpenURL:url]) {
+            NSURL*url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            [[UIApplication sharedApplication] openURL:url];
+        }
     }
 }
 @end
